@@ -1,0 +1,30 @@
+body {
+    background-color: goldenrod;
+}
+
+.wrap-board-stats {
+    flex-direction: column-reverse;
+}
+
+.players-stats {
+    flex-direction: row;
+    width: 34.5vw;
+    height: 10vw;
+}
+
+.player1-stats,
+.player2-stats {
+    width: 50%;
+    height: 100%;
+}
+
+.player1-your-turn,
+.player2-your-turn,
+.player1-name,
+.player2-name {
+    width: 100%;
+}
+
+.wrap-buttons {
+    width: 34.5vw;
+}

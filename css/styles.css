@@ -1,0 +1,83 @@
+* {
+    margin: 0;
+    padding: 0;
+    
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+/* WRAP BOARD AND STATS */
+.wrap-board-stats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ccc;
+}
+
+.game-board {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: 11.5vw 11.5vw 11.5vw;
+    grid-template-rows: 11.5vw 11.5vw 11.5vw;
+
+    font-size: 2vw;
+    
+    border: .1vw solid black;
+}
+
+.cell {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100%;
+
+    border: .1vw solid black;
+}
+
+.players-stats {
+    display: flex;
+    flex-direction: column;
+    
+    height: 34.5vw;
+    width: 15vw;
+
+    font-size: 1.5vw;
+    text-align: center;
+
+    border: .1vw solid black;
+
+
+}
+
+.player1-stats,
+.player2-stats,
+.player1-your-turn,
+.player2-your-turn,
+.player1-name,
+.playerw-name {
+    height: 50%;
+}
+
+/* WRAP BUTTONS */
+.wrap-buttons {
+    height: 5vw;
+    width: 49.7vw;
+    border: .1vw solid black;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.btn-reset {
+    width: 11.5vw;
+    font-size: 2vw;
+}
