@@ -1,52 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pruebas</title>
-    <!-- CSS -->
-    <link rel="stylesheet" href="../css/styles.css">
-    <!-- CSS screen smaller than 700px -->
-    <link rel="stylesheet" media="screen and (max-width:700px)" href="../css/700-game-board.css">
+    <title>Tic Tac Toe</title>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/styles.css">
 </head>
-<body>
-    <div class="wrap-board-stats">
-        <div class="game-board">
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-        </div>
-        <div class="players-stats">
-            <div class="player1-stats">
-                <div class="player1-your-turn">
-                    Your turn
-                </div>
-                <div class="player1-name">
-                    FERNANDO/CPU
-                </div>
-            </div>
-            <div class="player2-stats">
-                <div class="player2-your-turn hide">
-                    Your turn
-                </div>
-                <div class="player2-name">
-                    MARIANO/CPU
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="wrap-buttons">
-        <div class="btn-reset">RESET</div>
-    </div>
 
-    <!-- JavaScript -->
-    <script src="./js/main.js"></script>
+<body>
+
+    <div class="container">
+        <div class="container-header">
+            <p class="glitch">
+                <span aria-hidden="true">TIC</span>
+                TIC
+                <span aria-hidden="true">TIC</span>
+            </p>
+            <p class="glitch tac">
+                <span aria-hidden="true">TAC</span>
+                TAC
+                <span aria-hidden="true">TAC</span>
+            </p>
+            <p class="glitch toe">
+                <span aria-hidden="true">TOE</span>
+                TOE
+                <span aria-hidden="true">TOE</span>
+            </p>
+        </div>
+        <div class="container-press-start">
+            <span class="press-start">
+                <a href="./pages/select-players.html">START</a>
+            </span>
+        </div>
+        <footer class="footer">
+            <span>Fernando Valdivielso - @valdidev</span>
+        </footer>
+    </div>
 </body>
+
 </html>
