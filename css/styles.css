@@ -81,3 +81,8 @@ body {
     width: 11.5vw;
     font-size: 2vw;
 }
+
+/* JS */
+.hide {
+    visibility: hidden;
+}
