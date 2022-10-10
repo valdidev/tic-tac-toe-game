@@ -160,3 +160,9 @@ body {
 }
 
 /* WINNER PAGE */
+
+.glitch-player-name {
+    color: #fff;
+    font-size: 2em;
+    text-shadow: #fc00ff .1vw .1vw .1vw;
+}
