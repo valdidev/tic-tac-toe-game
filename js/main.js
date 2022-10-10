@@ -8,22 +8,24 @@ let p2Rolls = 3;
 
 cells.map(cell => {
     cell.addEventListener("click", () => {
-        if(cell.innerHTML == "" && p1Rolls >= 0 && p2Rolls > 0){
-            cell.innerHTML = (turn) ? "X" : "O";
-            turn = !turn;
-            if(!turn){
-                p2Turn.classList.remove('hide');
-                p1Turn.classList.add('hide');
-                p1Rolls--;
-                console.log("p1 " + p1Rolls);
-            } else {
-                p1Turn.classList.remove('hide');
-                p2Turn.classList.add('hide');
-                p2Rolls--;
-                console.log("p2 " + p2Rolls);
+            if(cell.innerHTML == "" && p1Rolls >= 0 && p2Rolls > 0){
+                cell.innerHTML = (turn) ? "X" : "O";
+                turn = !turn;
+                if(!turn){
+                    p2Turn.classList.remove('hide');
+                    p1Turn.classList.add('hide');
+                    p1Rolls--;
+                } else {
+                    p1Turn.classList.remove('hide');
+                    p2Turn.classList.add('hide');
+                    p2Rolls--;
+                }
+            }else {
+                console.log("function movePlacedPiece")
             }
-        }else {
-            console.log("function movePlacedPiece")
-        }
+
+            if(p1Rolls <= 0){
+                console.log("función checkWinner")
+            }
     });
 });
