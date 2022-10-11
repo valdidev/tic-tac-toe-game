@@ -1,7 +1,7 @@
 body {
     background-color: goldenrod;
 }
-
+/* GAME BOARD PAGE width < 700px */
 .wrap-board-stats {
     flex-direction: column-reverse;
 }
@@ -28,3 +28,5 @@ body {
 .wrap-buttons {
     width: 34.5vw;
 }
+
+/* SELECT PLAYERS PAGE width < 700px */
