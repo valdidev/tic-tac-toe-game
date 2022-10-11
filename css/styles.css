@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     user-select: none;
+    outline: none;
 }
 
 a, 
@@ -164,16 +165,19 @@ body {
     display: flex;
     flex-direction: column;
     width: 60vw;
-    height: 40vw;
+    height: 90vh;
 
     color: #fff;
     font-size: 1vw;
 }
 
 .select-players-header,
-.select-player1-vs-player2,
-.select-players-start {
-    height: 10vw;
+.select-players-play {
+    height: 10%
+}
+
+.select-player1-vs-player2 {
+    height: 80%;
 }
 
 .select-players-header {
@@ -181,8 +185,8 @@ body {
     justify-content: center;
     align-items: center;
 
-    border: .1vw solid black;
-    font-size: 1.5em;
+    font-size: 2em;
+    text-shadow: #777 0.2vw 0.2vw 0.2vw;
 }
 
 .select-player1-vs-player2 {
@@ -191,19 +195,27 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
-
-    border: .1vw solid black;
 }
 
 .select-player1,
-.select-player-vs,
 .select-player2 {
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    width: 33%;
+    width: 35%;
     height: 100%;
+}
+
+.select-player-vs {
+    width: 15%;
+    height: 100%;
+    align-items: center;
+    border-left: .1vw solid white;
+    border-right: .1vw solid white;
+    margin-left: .5em;
+    margin-right: .5em;
+    text-shadow: #777 0.2vw 0.2vw 0.2vw;
 }
 
 .select-player1,
@@ -224,7 +236,7 @@ body {
     display: flex;
     justify-content: center;
 
-    font-size: 5em;
+    font-size: 4em;
 }
 
 .player1-header,
@@ -234,8 +246,18 @@ body {
 
 .player1-header-text,
 .player2-header-text {
-    font-size: 2em;
+    font-size: 5em;
     /* font-family: fantasy; */
+}
+
+.player1-header-text {
+    color: #00fffc;
+    text-shadow: #064948 .3vw .3vw .1vw;
+}
+
+.player2-header-text {
+    color: #fc00ff;
+    text-shadow: #6c0b6d .3vw .3vw .1vw;
 }
 
 .player1-cpu-human,
@@ -250,31 +272,61 @@ body {
 .player2-human-radio-label {
     display: flex;
     justify-content: space-between;
+    font-size: 2em;
+
+    border: .1vw solid black;
+    padding: 1vw;
+    background-color: rgb(48, 45, 45);
+}
+
+label {
+    text-shadow: .1vw .1vw .1vw black;
+}
+
+.select-player1 label {
+    color: #00fffc;
+}
+
+.select-player2 label {
+    color: #fc00ff;
 }
 
 input[type="text"]{
     width: 100%;
-    font-size: 1em;
+    font-size: 2em;
+    padding: .1em;
+    margin: 1em 0 1em 0;
+    border-radius: .2em;
+    background-color: #ccc;
 }
 
-/* input[type="radio"]{
-    width: 2em;
-} */
+input[type="radio"]{
+    /* width: 4em; */
+}
 
-.select-players-start {
+.select-players-play {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    border: .1vw solid black;
 }
 
-.btn-start {
+.btn-play {
     width: 10vw;
     font-size: 2em;
     cursor: pointer;
+    background-color: rgb(61, 176, 61);
+    color: #fff;
+    text-shadow: .1vw .1vw .1vw #222;
+    border: none;
+    border-radius: 1em;
+    padding: .2em .5em;
 }
 
+.btn-play:hover {
+    background-color: rgb(30, 130, 30);
+    text-shadow: .1vw .1vw .1vw black;
+}
 /* WINNER PAGE */
 
 .glitch-player-name {

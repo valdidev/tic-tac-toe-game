@@ -1,6 +1,3 @@
-body {
-    background-color: goldenrod;
-}
 /* GAME BOARD PAGE width < 700px */
 .wrap-board-stats {
     flex-direction: column-reverse;
@@ -30,3 +27,59 @@ body {
 }
 
 /* SELECT PLAYERS PAGE width < 700px */
+.container-select-players {
+    width: 90vw;
+}
+
+.select-players-header {
+    font-size: 3em;
+}
+
+.player1-header-text,
+.player2-header-text {
+    font-size: 8em;
+}
+
+.select-player1-vs-player2 {
+    flex-direction: column;
+}
+
+.select-player1,
+.select-player2 {
+    width: 90%;
+}
+
+.select-player-vs{
+    text-align: center;
+    line-height: 2.5em;
+    width: 100%;
+    border-left: none;
+    border-right: none;
+    border-top: .2vw solid white;
+    border-bottom: .2vw solid white;
+}
+
+.vs-text {
+    font-size: 1.5em;
+}
+
+.player1-input-name,
+.player2-input-name {
+    text-align: center;
+}
+
+.player1-cpu-human,
+.player2-cpu-human {
+    width: 30%;
+}
+
+input[type="text"]{
+    width: 50%;
+    height: 5em;
+    font-size: 1em;
+}
+
+.btn-play {
+    width: 30%;
+    height: 50%;
+}
