@@ -11,6 +11,8 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    background-color: rgb(31, 29, 29);
 }
 
 /* GAME BOARD - Board and Stats */
@@ -86,4 +88,15 @@ body {
 /* GAME BOARD - for JS */
 .hide {
     visibility: hidden;
+}
+
+.symbol-x {
+    background-image: url("../img/symbol-x.png");
+    background-size: cover;
+}
+
+.symbol-o {
+    background-image: url("../img/symbol-o.png");
+    background-size: cover;
+    background-position: center;
 }
