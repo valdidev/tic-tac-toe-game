@@ -7,15 +7,21 @@
     <title>Tic Tac Toe</title>
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../css/styles.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/game-board.css">
 </head>
 <body>
     <div class="container">
-            <h1 class="glitch-player-name">PLAYER 1</h1>
+            <h1 class="winner-name" id="winner-name">PLAYER 1</h1>
             <p class="glitch tac">
                 <span aria-hidden="true">WINS</span>
                 WINS!
                 <span aria-hidden="true">WINS!</span>
             </p>
+            <div class="wrap-buttons">
+                <div class="btn btn-new-game" id="btn-new-game">NEW GAME</div>
+            </div>
     </div>
+    <script src="../js/winner.js"></script>
 </body>
 </html>
