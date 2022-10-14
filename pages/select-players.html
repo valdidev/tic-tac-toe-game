@@ -8,16 +8,18 @@
     <title>Tic Tac Toe</title>
     <!-- CSS -->
     <link rel="stylesheet" href="../css/styles.css">
-    <!-- CSS screen smaller than 700px -->
+    <!-- CSS width screen smaller than 700px -->
     <link rel="stylesheet" media="screen and (max-width:700px)" href="../css/max-width-700.css">
 </head>
 
 <body>
     <div class="container">
         <div class="container-select-players">
+            <!-- PLAYERS SELECTION HEADER -->
             <div class="select-players-header">
                 <h1 class="shadow-yellow">PLAYERS SELECTION</h1>
             </div>
+            <!-- PLAYERS SELECTION INPUTS -->
             <div class="select-player1-vs-player2">
                 <div class="select-player1">
                     <div class="player1-header">
@@ -25,22 +27,22 @@
                             X
                         </span>
                     </div>
-                    <div class="player1-cpu-human">
-                        <div class="player1-cpu-radio-label">
-                            <input type="radio" name="player1-cpu">
+                    <div class="player1-type">
+                        <div class="player1-type-cpu">
+                            <input type="radio" name="player1-type" id="player1-cpu">
                             <label for="player1-cpu">CPU</label>
                         </div>
-                        <div class="player1-human-radio-label">
-                            <input type="radio" name="player1-human">
+                        <div class="player1-type-human">
+                            <input type="radio" name="player1-type" id="player1-human" checked>
                             <label for="player1-human">HUMAN</label>
                         </div>
                     </div>
                     <div class="player1-input-name">
-                        <input type="text" placeholder="player1 name">
+                        <input type="text" placeholder="player1 name" id="player1-name">
                     </div>
                 </div>
                 <div class="select-player-vs">
-                    <span class="vs-text shadow-yellow">
+                    <span class="vs-text">
                         VS
                     </span>
                 </div>
@@ -50,28 +52,30 @@
                             O
                         </span>
                     </div>
-                    <div class="player2-cpu-human">
-                        <div class="player2-cpu-radio-label">
-                            <input type="radio" name="player2-cpu">
-                            <label for="player2-cpu">CPU</label>
+                    <div class="player2-type">
+                        <div class="player2-type-cpu">
+                            <input type="radio" name="player2-type" id="player1-human" checked>
+                            <label for="player1-human">CPU</label>
                         </div>
-                        <div class="player2-human-radio-label">
-                            <input type="radio" name="player2-human">
+                        <div class="player2-type-human">
+                            <input type="radio" name="player2-type" id="player2-human">
                             <label for="player2-human">HUMAN</label>
                         </div>
                     </div>
                     <div class="player2-input-name">
-                        <input type="text" placeholder="player2 name">
+                        <input type="text" placeholder="player2 name" id="player2-name">
                     </div>
                 </div>
             </div>
+            <!-- PLAY BUTTON -->
             <div class="select-players-play">
-                <button class="btn-play">
+                <button class="btn-play" id="btn-play">
                     PLAY
                 </button>
             </div>
         </div>
     </div>
+    <script src="../js/select-players.js"></script>
 </body>
 
 </html>
