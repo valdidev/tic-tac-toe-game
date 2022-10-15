@@ -22,19 +22,19 @@ body {
     justify-content: center;
     align-items: center;
     width: 90vw;
-    height: 60vh;
+    height: 70vh;
 }
 
 .game-board {
+    width: 60%;
     display: grid;
     justify-content: center;
     align-items: center;
-    grid-template-columns: 11.5vw 11.5vw 11.5vw;
-    grid-template-rows: 11.5vw 11.5vw 11.5vw;
+    grid-template-columns: 12.5vw 12.5vw 12.5vw;
+    grid-template-rows: 12.5vw 12.5vw 12.5vw;
     cursor: pointer;
     font-size: 2vw;
-    
-    
+     
 }
 
 .cell {
@@ -45,62 +45,76 @@ body {
 
     height: 100%;
 
-    border: #fff .1vw solid;
+    border: rgba(255, 255, 255, 0.886) .1vw solid;
     background-color: rgba(204, 204, 204, 0.245);
+
+    color: #fff;
+    font-size: 2em;
+}
+
+.x-mark {
+    color: #00fffc;
+    text-shadow: #064948 .3vw .3vw .1vw;
+}
+
+.o-mark {
+    color: #fc00ff;
+    text-shadow: #6c0b6d .3vw .3vw .1vw;
+}
+
+.current-player{
+    transform: scale(1.7);
+    transition: all 400ms;
 }
 
 .players-stats {
     display: flex;
     flex-direction: column;
-    
-    height: 34.5vw;
-    width: 22vw;
-
-    font-size: 2vw;
-    text-align: center;
+    height: 37.5vw;
+    justify-content: space-between;
     color: #fff;
 }
 
 .player1-stats,
-.player2-stats,
-.player1-your-turn,
-.player2-your-turn,
-.player1-name,
-.playerw-name {
+.player2-stats {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
     height: 50%;
 }
 
-/* GAME BOARD - WRAP BUTTONS */
-.wrap-buttons {
-    height: 1vw;
-    width: 49.7vw;
-    margin-top: 3em;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    padding: 1em;
+.player1-your-turn,
+.player2-your-turn {
+    font-size: 1.2em;
+}
+
+.player1-name,
+.player2-name {
+    font-size: 1.5em;
+}
+
+.player1-name {
+    color: #00fffc;
+}
+
+.player2-name {
+    margin-top: 1em;
+    color: #fc00ff;
 }
 
 .btn {
-    width: 50%;
-    font-size: 2vw;
-    cursor: pointer;
     color: #fff;
-    text-shadow: .1vw .1vw .1vw #333;
+    text-shadow: .1vw .1vw .1vw black;
 }
 
-/* GAME BOARD - for JS */
-.hide {
-    visibility: hidden;
-}
-
-.symbol-x {
-    background-image: url("../img/symbol-x.png");
-    background-size: cover;
-}
-
-.symbol-o {
-    background-image: url("../img/symbol-o.png");
-    background-size: cover;
-    background-position: center;
+.btn:hover {
+    cursor: pointer;
+    text-shadow: 
+    0 0 2vw #fc00ff,
+    0 0 4vw #fc00ff,
+    0 0 6vw #00fffc,
+    0 0 8vw #00fffc,
+    0 0 10vw #fffc00,
+    0 0 12vw #fffc00;
 }

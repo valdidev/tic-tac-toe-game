@@ -13,7 +13,7 @@
 .players-stats {
     flex-direction: row;
     width: 61.5vw;
-    height: 10vw;
+    height: 20vw;
 }
 
 .player1-stats,
@@ -27,11 +27,13 @@
 .player1-name,
 .player2-name {
     width: 100%;
+    margin: 0;
 }
 
 .wrap-buttons {
     width: 34.5vw;
     height: 5vh;
+    text-align: center;
 }
 
 /* SELECT PLAYERS PAGE width < 700px */
