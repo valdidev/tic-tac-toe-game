@@ -1,11 +1,18 @@
 /* GAME BOARD PAGE width < 700px */
 .wrap-board-stats {
     flex-direction: column-reverse;
+    height: 70vh;
+    width: 90vw;
+}
+
+.game-board {
+    grid-template-columns: 20.5vw 20.5vw 20.5vw;
+    grid-template-rows: 20.5vw 20.5vw 20.5vw;
 }
 
 .players-stats {
     flex-direction: row;
-    width: 34.5vw;
+    width: 61.5vw;
     height: 10vw;
 }
 
@@ -24,6 +31,7 @@
 
 .wrap-buttons {
     width: 34.5vw;
+    height: 5vh;
 }
 
 /* SELECT PLAYERS PAGE width < 700px */
@@ -68,8 +76,8 @@
     text-align: center;
 }
 
-.player1-cpu-human,
-.player2-cpu-human {
+.player1-type,
+.player2-type {
     width: 30%;
 }
 

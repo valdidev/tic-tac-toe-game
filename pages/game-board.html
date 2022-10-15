@@ -7,12 +7,15 @@
     <title>Tic Tac Toe</title>
     <!-- CSS -->
     <link rel="stylesheet" href="../css/game-board.css">
-    <!-- CSS screen smaller than 700px -->
+    <!-- CSS width screen smaller than 700px -->
     <link rel="stylesheet" media="screen and (max-width:700px)" href="../css/max-width-700.css">
 </head>
 <body>
+
     <div class="wrap-board-stats">
-        <div class="game-board" id="board">
+
+        <!-- GAME BOARD -->
+        <div class="game-board">
             <div class="cell"></div>
             <div class="cell"></div>
             <div class="cell"></div>
@@ -23,32 +26,28 @@
             <div class="cell"></div>
             <div class="cell"></div>
         </div>
+
+        <!-- PLAYERS STATS -->
         <div class="players-stats">
             <div class="player1-stats">
-                <div class="player1-your-turn">
-                    Your turn
-                </div>
-                <div class="player1-name">
-                    FERNANDO/CPU
-                </div>
+                <div class="player1-your-turn" id="player1-turns-number"></div>
+                <div class="player1-your-turn" id="player1-turns-text"></div>
+                <div class="player1-name" id="player1-name"></div>
             </div>
             <div class="player2-stats">
-                <div class="player2-your-turn hide">
-                    Your turn
-                </div>
-                <div class="player2-name">
-                    MARIANO/CPU
-                </div>
+                <div class="player2-your-turn" id="player2-turns-number"></div>
+                <div class="player1-your-turn" id="player2-turns-text"></div>
+                <div class="player2-name" id="player2-name"></div>
             </div>
         </div>
+
     </div>
+
     <div class="wrap-buttons">
-        <div class="btn btn-reset">NEW GAME</div>
-        <div class="btn btn-reset">RESET</div>
+        <div class="btn btn-new-game" id="btn-new-game">NEW GAME</div>
     </div>
 
     <!-- JavaScript -->
-    <!-- <script src="../js/main.js"></script> -->
     <script src="../js/game.js"></script>
 </body>
 </html>

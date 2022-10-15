@@ -12,6 +12,7 @@ body {
     justify-content: center;
     align-items: center;
 
+    font-family: Arial;
     background-color: rgb(31, 29, 29);
 }
 
@@ -20,7 +21,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #ccc;
+    width: 90vw;
+    height: 60vh;
 }
 
 .game-board {
@@ -29,10 +31,10 @@ body {
     align-items: center;
     grid-template-columns: 11.5vw 11.5vw 11.5vw;
     grid-template-rows: 11.5vw 11.5vw 11.5vw;
-
+    cursor: pointer;
     font-size: 2vw;
     
-    border: .1vw solid black;
+    
 }
 
 .cell {
@@ -43,7 +45,8 @@ body {
 
     height: 100%;
 
-    border: .1vw solid black;
+    border: #fff .1vw solid;
+    background-color: rgba(204, 204, 204, 0.245);
 }
 
 .players-stats {
@@ -51,14 +54,11 @@ body {
     flex-direction: column;
     
     height: 34.5vw;
-    width: 15vw;
+    width: 22vw;
 
-    font-size: 1.5vw;
+    font-size: 2vw;
     text-align: center;
-
-    border: .1vw solid black;
-
-
+    color: #fff;
 }
 
 .player1-stats,
@@ -72,17 +72,21 @@ body {
 
 /* GAME BOARD - WRAP BUTTONS */
 .wrap-buttons {
-    height: 5vw;
+    height: 1vw;
     width: 49.7vw;
-    border: .1vw solid black;
+    margin-top: 3em;
     display: flex;
     justify-content: center;
     text-align: center;
+    padding: 1em;
 }
 
 .btn {
-    width: 11.5vw;
+    width: 50%;
     font-size: 2vw;
+    cursor: pointer;
+    color: #fff;
+    text-shadow: .1vw .1vw .1vw #333;
 }
 
 /* GAME BOARD - for JS */
