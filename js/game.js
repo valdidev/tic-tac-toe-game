@@ -1,9 +1,11 @@
 const player1Name = document.getElementById("player1-name");
 const player2Name = document.getElementById("player2-name");
+const gameModeDisplay = document.getElementById("game-mode-display");
 let player1TurnsNumber = document.getElementById("player1-turns-number");
 let player2TurnsNumber = document.getElementById("player2-turns-number");
 let player1TurnsText = document.getElementById("player1-turns-text");
 let player2TurnsText = document.getElementById("player2-turns-text");
+const btnNewGame = document.getElementById("btn-new-game");
 
 // GET NAME/TYPE player1 FROM SESSIONSTORAGE
 player1Name.innerHTML = sessionStorage.getItem("player1-name");
@@ -36,7 +38,7 @@ class Player {
 let player1 = new Player(player1Name.innerHTML, player1Type);
 let player2 = new Player(player2Name.innerHTML, player2Type);
 
-///////////////////////////////////////////////////////////////////
+/////////
 
 // GAME
 const winningCombinations = [
@@ -50,7 +52,7 @@ const winningCombinations = [
     [2, 4, 6]
 ];
 
-gameState = ["", "", "", "", "", "", "", "", ""];
+const gameState = ["", "", "", "", "", "", "", "", ""];
 
 // BOARD
 const gameBoard = Array.from(document.getElementsByClassName("cell"));
@@ -62,8 +64,7 @@ player1TurnsNumber.textContent = p1Turns;
 player2TurnsNumber.textContent = p2Turns;
 let totalPlays = 0;
 
-// GAME MODE
-
+// GAME MODES
 const humanVsHuman = () => {
     let turn = true;
     gameBoard.map(cell => {
@@ -253,15 +254,21 @@ const addMarkPlayer = (turn) => {
     })
 }
 
+// DISPLAY GAME MODE
+btnNewGame.addEventListener("click", () => {
+    window.location.href = "../pages/select-players.html"
+});
+
+// SELECT GAME MODE FUNCTION
 function startGame() {
     if (player1.type == "human" && player2.type == "human") {
-        console.log("human vs human")
+        gameModeDisplay.textContent = "Human vs Human";
         humanVsHuman();
     } else if (player1.type == "human" && player2.type == "cpu") {
-        console.log("human vs cpu")
+        gameModeDisplay.textContent = "Human vs Cpu";
         humanVsCpu();
     } else {
-        console.log("cpu vs human")
+        gameModeDisplay.textContent = "Cpu vs Human";
         cpuVsHuman();
     }
 }

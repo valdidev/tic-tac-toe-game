@@ -2,6 +2,7 @@
 * {
     margin: 0;
     padding: 0;
+    user-select: none;
 }
 
 body {
@@ -22,19 +23,19 @@ body {
     justify-content: center;
     align-items: center;
     width: 90vw;
-    height: 70vh;
+    height: 60vh;
 }
 
 .game-board {
-    width: 60%;
     display: grid;
     justify-content: center;
     align-items: center;
-    grid-template-columns: 12.5vw 12.5vw 12.5vw;
-    grid-template-rows: 12.5vw 12.5vw 12.5vw;
+    grid-template-columns: 11.5vw 11.5vw 11.5vw;
+    grid-template-rows: 11.5vw 11.5vw 11.5vw;
     cursor: pointer;
     font-size: 2vw;
-     
+    
+    
 }
 
 .cell {
@@ -45,11 +46,84 @@ body {
 
     height: 100%;
 
-    border: rgba(255, 255, 255, 0.886) .1vw solid;
+    border: #fff .1vw solid;
     background-color: rgba(204, 204, 204, 0.245);
+}
 
+.players-stats {
+    display: flex;
+    flex-direction: column;
+    
+    height: 34.5vw;
+    width: 22vw;
+
+    font-size: 2vw;
+    text-align: center;
     color: #fff;
-    font-size: 2em;
+}
+
+.player1-stats,
+.player2-stats {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 50%;
+}
+
+.player1-name,
+.player2-name {
+    transition: all 300ms;
+}
+
+.player1-name {
+    color: #00fffc;
+}
+
+.player2-name {
+    color: #fc00ff;
+}
+
+/* GAME BOARD - WRAP BUTTONS */
+.wrap-buttons {
+    height: 4vw;
+    width: 49.7vw;
+    margin-top: 3em;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    padding: 1em;
+    border-bottom: .1vw solid rgba(204, 204, 204, 0.245);
+}
+
+.game-mode-display {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.btn {
+    width: 50%;
+    font-size: 2vw;
+    line-height: 4vw;
+    cursor: pointer;
+    color: rgb(61, 176, 61);
+    text-shadow: .1vw .1vw .1vw #333;
+    transition: all 300ms;
+    border: .1vw solid #ccc;
+}
+
+.btn:hover {
+    color: #fff;
+    background-color: rgb(61, 176, 61);
+}
+
+.btn-new-game {
+    width: 20vw;
+    text-align: center;
+}
+
+/* GAME BOARD - for JS */
+.hide {
+    visibility: hidden;
 }
 
 .x-mark {
@@ -62,59 +136,8 @@ body {
     text-shadow: #6c0b6d .3vw .3vw .1vw;
 }
 
-.current-player{
-    transform: scale(1.7);
-    transition: all 400ms;
-}
-
-.players-stats {
-    display: flex;
-    flex-direction: column;
-    height: 37.5vw;
-    justify-content: space-between;
-    color: #fff;
-}
-
-.player1-stats,
-.player2-stats {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    text-align: center;
-    height: 50%;
-}
-
-.player1-your-turn,
-.player2-your-turn {
+.current-player {
+    text-decoration: underline;
     font-size: 1.2em;
 }
 
-.player1-name,
-.player2-name {
-    font-size: 1.5em;
-}
-
-.player1-name {
-    color: #00fffc;
-}
-
-.player2-name {
-    margin-top: 1em;
-    color: #fc00ff;
-}
-
-.btn {
-    color: #fff;
-    text-shadow: .1vw .1vw .1vw black;
-}
-
-.btn:hover {
-    cursor: pointer;
-    text-shadow: 
-    0 0 2vw #fc00ff,
-    0 0 4vw #fc00ff,
-    0 0 6vw #00fffc,
-    0 0 8vw #00fffc,
-    0 0 10vw #fffc00,
-    0 0 12vw #fffc00;
-}

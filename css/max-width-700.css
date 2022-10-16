@@ -1,7 +1,7 @@
 /* GAME BOARD PAGE width < 700px */
 .wrap-board-stats {
     flex-direction: column-reverse;
-    height: 70vh;
+    height: 60vh;
     width: 90vw;
 }
 
@@ -13,7 +13,7 @@
 .players-stats {
     flex-direction: row;
     width: 61.5vw;
-    height: 20vw;
+    height: 10vw;
 }
 
 .player1-stats,
@@ -27,13 +27,23 @@
 .player1-name,
 .player2-name {
     width: 100%;
-    margin: 0;
 }
 
 .wrap-buttons {
-    width: 34.5vw;
+    width: 50vw;
     height: 5vh;
-    text-align: center;
+
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    margin: 0;
+    border: none;
+}
+
+.game-mode-display {
+    margin-bottom: 2vw;
+    margin-top: 2vw;
 }
 
 /* SELECT PLAYERS PAGE width < 700px */
@@ -78,8 +88,8 @@
     text-align: center;
 }
 
-.player1-type,
-.player2-type {
+.player1-cpu-human,
+.player2-cpu-human {
     width: 30%;
 }
 
