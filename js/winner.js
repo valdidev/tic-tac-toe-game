@@ -1,5 +1,7 @@
-const winnerName = document.getElementById("winner-name");
-winnerName.innerHTML = sessionStorage.getItem("winner");
+const displayWinnerName = document.getElementById("winner-name");
+let winnerName = sessionStorage.getItem("winner");
+displayWinnerName.innerHTML = winnerName;
+console.log(winnerName)
 
 const btnNewGame = document.getElementById("btn-new-game");
 btnNewGame.addEventListener("click", () => {
