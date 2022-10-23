@@ -49,6 +49,7 @@ class Player {
     paintMark(event) {
         event.target.textContent = this.mark;
         event.target.classList.add(this.mark + "-mark");
+        this.spendMark();
 
     };
 
@@ -57,6 +58,7 @@ class Player {
             event.target.textContent = "";
             event.target.classList.remove("x-mark");
             event.target.classList.remove("o-mark");
+            this.retrieveMark();
         }
     };
 
@@ -68,10 +70,9 @@ class Player {
         while (nextMove.textContent != "" && gameBoard.indexOf(nextMove) != gameBoard.indexOf(lastMove)) {
             nextMove = gameBoard[Math.floor(Math.random() * gameBoard.length)];
         }
-        console.log(gameBoard.indexOf(nextMove))
-        console.log(gameBoard.indexOf(lastMove))
         nextMove.textContent = this.mark;
         nextMove.classList.add(this.mark + "-mark");
+        this.spendMark();
     }
 
     cpuRemoveMark() {
@@ -82,7 +83,7 @@ class Player {
         randomRemove.textContent = "";
         randomRemove.classList.remove("x-mark");
         randomRemove.classList.remove("o-mark");
-
+        this.retrieveMark();
         return randomRemove;
     }
 };
@@ -121,6 +122,7 @@ player2MarksNumber.textContent = player2.marksLeft;
 
 // MODES 
 const humanVsHuman = () => {
+    turn = true;
     player1Name.classList.add("current-player");
     gameBoard.map(cell => {
         cell.addEventListener("click", event => {
@@ -131,7 +133,6 @@ const humanVsHuman = () => {
                         player2Name.classList.add("current-player");
                         player1.paintMark(event);
                         checkWinner(turn);
-                        player1.spendMark();
                         player1MarksNumber.textContent = player1.marksLeft;
                         changeTurn();
                     } else {
@@ -139,7 +140,6 @@ const humanVsHuman = () => {
                         player1Name.classList.add("current-player");
                         player2.paintMark(event);
                         checkWinner(turn);
-                        player2.spendMark();
                         player2MarksNumber.textContent = player2.marksLeft;
                         changeTurn();
                     }
@@ -147,11 +147,9 @@ const humanVsHuman = () => {
             } else {
                 if (turn) {
                     player1.removeMark(event);
-                    player1.retrieveMark();
                     player1MarksNumber.textContent = player1.marksLeft;
                 } else {
                     player2.removeMark(event);
-                    player2.retrieveMark();
                     player2MarksNumber.textContent = player2.marksLeft;
                 }
             }
@@ -164,37 +162,45 @@ const humanVsCpu = () => {
     turn = true;
     gameBoard.map(cell => {
         cell.addEventListener("click", event => {
-
+            // player 1 - human
             if (player1.marksLeft > 0 || player2.marksLeft > 0) {
                 if (turn) {
-                    if (event.target.textContent == "") {
+                    if (event.target.textContent == "" && turn === true) {
 
                         player1Name.classList.remove("current-player");
                         player2Name.classList.add("current-player");
                         player1.paintMark(event);
-                        // checkWinner(turn);
-                        player1.spendMark();
+                        checkWinner(turn);
                         player1MarksNumber.textContent = player1.marksLeft;
                         changeTurn();
                     }
                 }
-
+                // player 2 - cpu
                 if (player2.marksLeft > 0 && turn === false) {
                     player1Name.classList.remove("current-player");
                     player2Name.classList.add("current-player");
-                    player2.cpuPaintMark();
-                    // checkWinner(turn);
-                    player2.spendMark();
-                    player2MarksNumber.textContent = player2.marksLeft;
+                    setTimeout(() => {
+                        player2Name.classList.remove("current-player");
+                        player1Name.classList.add("current-player");
+                        player2.cpuPaintMark();
+                        checkWinner(turn);
+                        player2MarksNumber.textContent = player2.marksLeft;
+                    }, 500);
                     changeTurn();
                 } else {
                     player2.cpuRemoveMark();
-                    player2.cpuPaintMark();
+                    setTimeout(() => {
+                        player2Name.classList.remove("current-player");
+                        player1Name.classList.add("current-player");
+                        player2.cpuPaintMark();
+                        checkWinner(turn);
+                        player2MarksNumber.textContent = player2.marksLeft;
+                    }, 500);
+                    changeTurn();
                 }
 
             } else {
                 player1.removeMark(event);
-                player1.retrieveMark();
                 player1MarksNumber.textContent = player1.marksLeft;
             }
 
@@ -205,13 +211,19 @@ const humanVsCpu = () => {
 const cpuVsHuman = () => {
     let removeCpu = false;
     let firstRoll = true;
+
+    // player 1 - cpu - first random roll
     turn = true;
     if (firstRoll) {
-        player1.cpuPaintMark();
-        player1.spendMark();
-        player1MarksNumber.textContent = player1.marksLeft;
-        changeTurn();
-        firstRoll = !firstRoll;
+        player1Name.classList.add("current-player");
+        setTimeout(() => {
+            player1Name.classList.remove("current-player");
+            player2Name.classList.add("current-player");
+            player1.cpuPaintMark();
+            changeTurn();
+            firstRoll = !firstRoll;
+            player1MarksNumber.textContent = player1.marksLeft;
+        }, 500);
     }
 
     gameBoard.map(cell => {
@@ -221,38 +233,37 @@ const cpuVsHuman = () => {
 
             if (player2.marksLeft > 0 && turn === false) {
                 if (event.target.textContent === "") {
+
                     player2.paintMark(event);
-                    console.log(turn)
                     checkWinner(turn);
-                    player2.spendMark();
                     player2MarksNumber.textContent = player2.marksLeft;
                     removeCpu = true;
+                    player1Name.classList.remove("current-player");
+                    player2Name.classList.add("current-player");
                     changeTurn();
+
                 }
             } else {
                 if (event.target.textContent == player2.mark) {
                     player2.removeMark(event);
-                    player2.retrieveMark();
                     player2MarksNumber.textContent = player2.marksLeft;
                     removeCpu = false;
                 }
             }
+
             // player 1 - cpu
             if (player1.marksLeft > 0 && turn === true) {
                 player1.cpuPaintMark();
                 checkWinner(turn);
-                player1.spendMark();
                 player1MarksNumber.textContent = player1.marksLeft;
                 changeTurn();
             }
 
             if (player1.marksLeft >= 0 && turn === true && removeCpu === true) {
                 let lastMove = player1.cpuRemoveMark();
-                player1.retrieveMark();
                 player1MarksNumber.textContent = player1.marksLeft;
                 player1.cpuPaintMark(lastMove);
                 checkWinner(turn);
-                player1.spendMark();
                 player1MarksNumber.textContent = player1.marksLeft;
                 changeTurn();
             }
@@ -263,14 +274,8 @@ const cpuVsHuman = () => {
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-// MECHANICS 
-// HUMAN
-
-//CPU
-
-
-///////////////////////////////////////////////////////////////////////////////
 // GAME WINNER 
+const result = [];
 
 const checkWinner = (turn) => {
     for (let i = 0; i < winningCombinations.length; i++) {
@@ -282,18 +287,17 @@ const checkWinner = (turn) => {
             continue;
         }
         if (position1 === position2 && position2 === position3) {
-            storageWinner(turn);
-            break;
+
+            return result.push(turn), storageWinner();
         }
     }
 };
 
-const storageWinner = (turn) => {
-    if (turn) {
-        sessionStorage.setItem('winnerBoolean', turn);
+
+const storageWinner = () => {
+    if (result[0] === true) {
         sessionStorage.setItem('winner', JSON.stringify(player1.name));
     } else {
-        sessionStorage.setItem('winnerBoolean', turn);
         sessionStorage.setItem('winner', JSON.stringify(player2.name));
     }
     window.location = "../pages/winner.html"
