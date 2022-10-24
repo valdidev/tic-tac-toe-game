@@ -160,23 +160,27 @@ const humanVsHuman = () => {
 const humanVsCpu = () => {
     player1Name.classList.add("current-player");
     turn = true;
+    let letPlayCpu = false;
     gameBoard.map(cell => {
         cell.addEventListener("click", event => {
-            // player 1 - human
-            if (player1.marksLeft > 0 || player2.marksLeft > 0) {
-                if (turn) {
-                    if (event.target.textContent == "" && turn === true) {
 
-                        player1Name.classList.remove("current-player");
-                        player2Name.classList.add("current-player");
-                        player1.paintMark(event);
-                        checkWinner(turn);
-                        player1MarksNumber.textContent = player1.marksLeft;
-                        changeTurn();
-                    }
+            
+            if (player1.marksLeft > 0 || player2.marksLeft > 0) {
+                
+                // player 1 - human
+                if (event.target.innerHTML == "" && turn === true) {
+                    player1Name.classList.remove("current-player");
+                    player2Name.classList.add("current-player");
+                    player1.paintMark(event);
+                    checkWinner(turn);
+                    player1MarksNumber.textContent = player1.marksLeft;
+                    changeTurn();
+                    letPlayCpu = true;
                 }
+
                 // player 2 - cpu
-                if (player2.marksLeft > 0 && turn === false) {
+                if (player2.marksLeft > 0 && turn === false && letPlayCpu === true) {
+                    letPlayCpu = false;
                     player1Name.classList.remove("current-player");
                     player2Name.classList.add("current-player");
                     setTimeout(() => {
@@ -187,7 +191,10 @@ const humanVsCpu = () => {
                         player2MarksNumber.textContent = player2.marksLeft;
                     }, 500);
                     changeTurn();
-                } else {
+                    
+                // player 2 - cpu    
+                } else if (player2.marksLeft <= 0 && turn === false && letPlayCpu === true) {
+                    letPlayCpu = false;
                     player2.cpuRemoveMark();
                     setTimeout(() => {
                         player2Name.classList.remove("current-player");
@@ -197,13 +204,14 @@ const humanVsCpu = () => {
                         player2MarksNumber.textContent = player2.marksLeft;
                     }, 500);
                     changeTurn();
+                    
                 }
 
+            // player 1 - human    
             } else {
                 player1.removeMark(event);
                 player1MarksNumber.textContent = player1.marksLeft;
             }
-
         });
     });
 };
